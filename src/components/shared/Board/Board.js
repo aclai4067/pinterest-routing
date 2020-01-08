@@ -1,5 +1,6 @@
 import './Board.scss';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import boardShape from '../../../helpers/propz/boardShape';
 
 class Board extends React.Component {
@@ -16,7 +17,7 @@ class Board extends React.Component {
           <div className='card-body'>
             <h3 className='card-title'>{board.name}</h3>
             <p className='card-text'>{board.description}</p>
-            <button className='btn btn-light mr-2'>View Pins</button>
+            <Link className='btn btn-light mr-2' to={`/board/${board.id}`}>View Pins</Link>
             <button className='btn btn-outline-light'>Edit Board</button>
           </div>
         </div>
