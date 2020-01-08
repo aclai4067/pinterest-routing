@@ -22,7 +22,7 @@ class Board extends React.Component {
       <div className='Board col-4 p-2'>
         <div className='boardCards card'>
           <div className='card-body'>
-            <button className='btn btn-dark' onClick={this.deleteBoardEvent}>X</button>
+            <button className='btn btn-danger close' onClick={this.deleteBoardEvent}>X</button>
             <h3 className='card-title'>{board.name}</h3>
             <p className='card-text'>{board.description}</p>
             <Link className='btn btn-light mr-2' to={`/board/${board.id}`}>View Pins</Link>

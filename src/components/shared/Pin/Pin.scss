@@ -7,6 +7,13 @@
     border: 2px solid $mutedNavy;
     border-radius: 30px;
     background-color: rgba(45, 46, 58, 0.452);
+    position: relative;
+
+    .deleteBtn{
+      position: absolute;
+      top: 15px;
+      right: 15px;
+    }
 
     .card-img{
       border: 1px solid $mutedNavy;
