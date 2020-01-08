@@ -30,8 +30,8 @@ class SingleBoard extends React.Component {
     const { board } = this.state;
     return (
       <div className='SingleBoard'>
-        <h1>{board.name}</h1>
-        <h2>{board.description}</h2>
+        <h1 className='m-4'>{board.name}</h1>
+        <h3 className='mb-4'>{board.description}</h3>
         <div className='d-flex flex-wrap justify-content-around'>
           {this.state.pins.map((pin) => <Pin key={pin.id} pin={pin} />)}
         </div>
