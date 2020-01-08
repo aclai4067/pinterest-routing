@@ -28,7 +28,7 @@ class MyNav extends React.Component {
               <Link className='nav-link' to='/board/new'>New Board</Link>
             </li>
             <li className='nav-item'>
-              <button className="logout btn btn-warning my-2 my-sm-0" onClick={this.logoutEvent}>Log Out</button>
+              <button className="logout btn btn-warning ml-1 my-2 my-sm-0" onClick={this.logoutEvent}>Log Out</button>
             </li>
           </ul>
         );
