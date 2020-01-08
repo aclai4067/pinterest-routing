@@ -26,6 +26,14 @@ class SingleBoard extends React.Component {
       }).catch((err) => console.error(err));
   }
 
+  trashPin = (pinId) => {
+    const { boardId } = this.props.match.params;
+    pinData.deletePin(pinId)
+      .then(() => {
+        this.getPinData(boardId);
+      }).catch((err) => console.error(err));
+  }
+
   render() {
     const { board } = this.state;
     return (
@@ -33,7 +41,7 @@ class SingleBoard extends React.Component {
         <h1 className='m-4'>{board.name}</h1>
         <h3 className='mb-4'>{board.description}</h3>
         <div className='d-flex flex-wrap justify-content-around'>
-          {this.state.pins.map((pin) => <Pin key={pin.id} pin={pin} />)}
+          {this.state.pins.map((pin) => <Pin key={pin.id} pin={pin} trashPin={this.trashPin} />)}
         </div>
       </div>
     );
