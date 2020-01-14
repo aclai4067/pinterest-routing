@@ -11,7 +11,7 @@ import './App.scss';
 import MyNav from '../components/shared/MyNav/MyNav';
 import Home from '../components/pages/Home/Home';
 import Auth from '../components/pages/Auth/Auth';
-import NewBoard from '../components/pages/NewBoard/NewBoard';
+import BoardForm from '../components/pages/BoardForm/BoardForm';
 import SingleBoard from '../components/pages/SingleBoard/SingleBoard';
 import connection from '../helpers/data/connection';
 
@@ -54,7 +54,7 @@ class App extends React.Component {
           <MyNav authed={authed} />
           <Switch>
             <PrivateRoute path="/" exact component={Home} authed={authed} />
-            <PrivateRoute path="/board/new" exact component={NewBoard} authed={authed} />
+            <PrivateRoute path="/board/new" exact component={BoardForm} authed={authed} />
             <PublicRoute path="/auth" exact component={Auth} authed={authed} />
             <PrivateRoute path="/board/:boardId" exact component={SingleBoard} authed={authed}/>
             {/* <PrivateRoute path="/board/:boardId/pin/:pinId" exact component={SinglePin} authed={authed} /> */}
