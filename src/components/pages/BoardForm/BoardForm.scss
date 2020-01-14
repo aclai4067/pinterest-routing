@@ -1,0 +1,10 @@
+@import '../../../styles/variables';
+
+.BoardForm {
+  color: $mutedNavy;
+
+  label{
+    display: block;
+    text-align: left;
+  }
+}
