@@ -1,9 +1,9 @@
 import './SingleBoard.scss';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import boardData from '../../../helpers/data/boardData';
 import pinData from '../../../helpers/data/pinData';
 import Pin from '../../shared/Pin/Pin';
-import { Link } from 'react-router-dom';
 
 class SingleBoard extends React.Component {
   state = {
