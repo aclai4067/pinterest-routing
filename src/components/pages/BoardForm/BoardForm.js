@@ -1,5 +1,6 @@
 import './BoardForm.scss';
 import React from 'react';
+import $ from 'jquery';
 import authData from '../../../helpers/data/authData';
 import boardData from '../../../helpers/data/boardData';
 
@@ -17,8 +18,13 @@ class BoardForm extends React.Component {
         .then((selectedBoard) => {
           const board = selectedBoard.data;
           this.setState({ boardName: board.name, boardDescription: board.description });
+          $('#newBoard').addClass('hide');
         }).catch((err) => console.error(err));
     }
+  }
+
+  componentWillUnmount() {
+    $('#newBoard').removeClass('hide');
   }
 
   nameChange = (e) => {
