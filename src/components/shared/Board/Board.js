@@ -26,7 +26,7 @@ class Board extends React.Component {
             <h3 className='card-title'>{board.name}</h3>
             <p className='card-text'>{board.description}</p>
             <Link className='btn btn-light mr-2' to={`/board/${board.id}`}>View Pins</Link>
-            <button className='btn btn-outline-light'>Edit Board</button>
+            <Link className='btn btn-outline-light' to={`board/${board.id}/edit`}>Edit Board</Link>
           </div>
         </div>
       </div>
