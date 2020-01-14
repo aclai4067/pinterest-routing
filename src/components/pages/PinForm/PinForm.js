@@ -9,6 +9,17 @@ class PinForm extends React.Component {
     pinImageUrl: '',
   }
 
+  componentDidMount() {
+    const { pinId } = this.props.match.params;
+    if (pinId) {
+      pinData.getSinglePin(pinId)
+        .then((myPin) => {
+          const pin = myPin.data;
+          this.setState({ pinTitle: pin.title, pinImageUrl: pin.imageUrl });
+        }).catch((err) => console.error(err));
+    }
+  }
+
   changeTitle = (e) => {
     e.preventDefault();
     this.setState({ pinTitle: e.target.value });
@@ -34,8 +45,25 @@ class PinForm extends React.Component {
       }).catch((err) => console.error(err));
   }
 
+  editPinEvent = (e) => {
+    e.preventDefault();
+    const { boardId, pinId } = this.props.match.params;
+    const updatedPinObj = {
+      imageUrl: this.state.pinImageUrl,
+      title: this.state.pinTitle,
+      uid: authData.getUid(),
+      boardId,
+    };
+    pinData.updatePin(pinId, updatedPinObj)
+      .then(() => {
+        this.props.history.push(`/board/${boardId}`);
+      }).catch((err) => console.error(err));
+  }
+
   render() {
     const { pinTitle, pinImageUrl } = this.state;
+    const { pinId } = this.props.match.params;
+
     return (
       <div className='PinForm'>
         <h1>Pin Form</h1>
@@ -48,7 +76,9 @@ class PinForm extends React.Component {
             <label htmlFor='pinImageUrl'>Pin Image URL</label>
             <input className='form-control' id='pinImageUrl' placeholder='Enter an Image Url (ends in .jpg, .png, .gif)' value={pinImageUrl} onChange={this.changeImageUrl} />
           </div>
-          <button className='btn btn-dark' onClick={this.savePinEvent}>Save Pin</button>
+          {
+            (pinId) ? (<button className='btn btn-dark' onClick={this.editPinEvent}>Update Pin</button>) : (<button className='btn btn-dark' onClick={this.savePinEvent}>Save Pin</button>)
+          }
         </form>
       </div>
     );

@@ -25,7 +25,7 @@ class MyNav extends React.Component {
               <Link className='nav-link' to='/'>Boards</Link>
             </li>
             <li className='nav-item'>
-              <Link className='nav-link' to='/board/new'>New Board</Link>
+              <Link className='nav-link' id='newBoard' to='/board/new'>New Board</Link>
             </li>
             <li className='nav-item'>
               <button className="logout btn btn-warning ml-1 my-2 my-sm-0" onClick={this.logoutEvent}>Log Out</button>
@@ -37,7 +37,7 @@ class MyNav extends React.Component {
     };
 
     return (
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark MyNav">
         <Link className="navbar-brand" to="/">Pinterest</Link>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
           aria-label="Toggle navigation">
