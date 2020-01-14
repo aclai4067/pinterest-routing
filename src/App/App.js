@@ -14,6 +14,7 @@ import Auth from '../components/pages/Auth/Auth';
 import BoardForm from '../components/pages/BoardForm/BoardForm';
 import SingleBoard from '../components/pages/SingleBoard/SingleBoard';
 import connection from '../helpers/data/connection';
+import PinForm from '../components/pages/PinForm/PinForm';
 
 connection();
 
@@ -57,6 +58,7 @@ class App extends React.Component {
             <PrivateRoute path="/board/new" exact component={BoardForm} authed={authed} />
             <PublicRoute path="/auth" exact component={Auth} authed={authed} />
             <PrivateRoute path="/board/:boardId" exact component={SingleBoard} authed={authed}/>
+            <PrivateRoute path="/board/:boardId/pin/new" exact component={PinForm} authed={authed} />
             {/* <PrivateRoute path="/board/:boardId/pin/:pinId" exact component={SinglePin} authed={authed} /> */}
           </Switch>
         </Router>
